@@ -62,14 +62,23 @@ class ComplexNumber(object):
         else:
             return True
 
-        def __add__(self, other):
-            """
-            this is the Method for the Classic addition von 2 COmplex Number using the Signe +
-            Return
-            ------
-            it return a Complex Number wich ist the Somme of the tu number.
-            """
-            return self.add(other)
+    def __add__(self, other):
+        """
+        this is the Method for the Classic addition von 2 Complex Number using the Signe +
+        Return
+        ------
+        it return a Complex Number wich ist the Somme of the two number.
+        """
+        return self.add(other)
+
+    def __sub__(self, other):
+        """
+        this is the Method for the Classic Substraction von 2 Complex Number using the Signe +
+        Return
+        ------
+        it return a Complex Number wich ist the different of the two number.
+        """
+        return self.sub(other)
     
     def getReal(self):
         """
@@ -110,6 +119,18 @@ class ComplexNumber(object):
         new.im += other.getImaginary()
         return new
     
+    def adds(self, c_list):
+        """
+        This Method shoul add a liste of Complex Numbers
+        Return
+        ------
+        it return a Complex Number which is the sum of all Complex Number in the list
+        """
+        first = c_list[0]
+        for i in range(1, len(c_list)):
+            fist = first.add(c_list[i])
+        return first
+    
     def sub(self, other):
         """
         This Medthod substract to our Complex Number another Complex Number to our Complex Number by subtracting their real parts together and their imaginary parts together
@@ -127,6 +148,18 @@ class ComplexNumber(object):
         new.re = (new.re*other.getReal()) - (new.im*other.getImaginary())
         new.im = (new.im*other.getReal()) + (new.re*other.getImaginary())
         return new
+
+    def multiplys(self, c_list):
+        """
+        This Method shoul multiply a list of Complex Numbers
+        Return
+        ------
+        it return a Complex Number which is the multiplication of all Complex Number in the list
+        """
+        first = c_list[0]
+        for i in range(1, len(c_list)):
+            fist = first.multiply(c_list[i])
+        return first
     
     def divide(self, other):
         """
