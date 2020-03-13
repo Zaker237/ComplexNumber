@@ -16,7 +16,7 @@ class ComplexNumber(object):
         this represent the real part of the Complex Number.
     im : float
         it represent the imajinary part of the Complex number.
-    
+
     Methods
     -------
     getImaginary():
@@ -46,10 +46,10 @@ class ComplexNumber(object):
         """
         self.re = real
         self.im = imaginary
-    
+
     def __str__(self):
         return f"{self.re:.2f} + {self.im:.2f}i"
-    
+
     def __bool__(self):
         """
         Method for checking the existance of our complex Number.
@@ -61,6 +61,12 @@ class ComplexNumber(object):
             return False
         else:
             return True
+
+    def __eq__(self, other):
+        if(self.re == other.re and self.im == other.im):
+            return True
+        else:
+            return False
 
     def __add__(self, other):
         """
@@ -79,7 +85,16 @@ class ComplexNumber(object):
         it return a Complex Number wich ist the different of the two number.
         """
         return self.sub(other)
-    
+
+    def __mul__(self, other):
+        """
+        this is the Method for the Classic Multiplication von 2 Complex Number using the Signe *
+        Return
+        ------
+        it return a Complex Number wich ist the Product of the two number.
+        """
+        return self.multiply(other)
+
     def getReal(self):
         """
         This Method just return the real part of the Complex Number.
@@ -97,7 +112,7 @@ class ComplexNumber(object):
         This Method just return the imaginary part of the Complex Number.
         """
         return self.im
-    
+
     def setImaginary(self, imaginary):
         """
         this the setter for the imaginary part
@@ -118,7 +133,7 @@ class ComplexNumber(object):
         new.re += other.getReal()
         new.im += other.getImaginary()
         return new
-    
+
     def adds(self, c_list):
         """
         This Method shoul add a liste of Complex Numbers
@@ -130,7 +145,7 @@ class ComplexNumber(object):
         for i in range(1, len(c_list)):
             fist = first.add(c_list[i])
         return first
-    
+
     def sub(self, other):
         """
         This Medthod substract to our Complex Number another Complex Number to our Complex Number by subtracting their real parts together and their imaginary parts together
@@ -139,7 +154,7 @@ class ComplexNumber(object):
         new.re -= other.getReal()
         new.im -= other.getImaginary()
         return new
-    
+
     def multiply(self, other):
         """
         This Method multiply our Complex Number with another Complex Number
@@ -160,7 +175,7 @@ class ComplexNumber(object):
         for i in range(1, len(c_list)):
             fist = first.multiply(c_list[i])
         return first
-    
+
     def divide(self, other):
         """
         This Method divide our Complex Number with another Complex Number.
@@ -175,13 +190,13 @@ class ComplexNumber(object):
             tmp = ComplexNumber(other_bar_re, other_bar_im)
             new.multiply(tmp)
         return new
-        
+
     def abs(self):
         """
         This Method return a float Number which is the absulute Value of our Complex Number
         """
         return math.sqrt(self.getReal()**2 + self.getImaginary()**2)
-    
+
     def toString(self):
         """
         For the case this Method just Print our Complex Number
