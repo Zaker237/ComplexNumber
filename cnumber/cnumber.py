@@ -95,25 +95,31 @@ class ComplexNumber(object):
         """
         return self.multiply(other)
 
-    def getReal(self):
+    def __enter__(self):
+        pass
+
+    def __exit__(self):
+        pass
+
+    def _get_real(self):
         """
         This Method just return the real part of the Complex Number.
         """
         return self.re
 
-    def setReal(self, real):
+    def _set_real(self, real):
         """
         This is the sette for the real par
         """
         self.re = real
 
-    def getImaginary(self):
+    def _get_imaginary(self):
         """
         This Method just return the imaginary part of the Complex Number.
         """
         return self.im
 
-    def setImaginary(self, imaginary):
+    def _set_maginary(self, imaginary):
         """
         this the setter for the imaginary part
         """
@@ -202,18 +208,3 @@ class ComplexNumber(object):
         For the case this Method just Print our Complex Number
         """
         print(self)
-
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-r1', type=float, default=0, help='the real part of the first Complex NUmber')
-    parser.add_argument('-i1', type=float, default=0, help='the imaginary part of the first Complex Number')
-    parser.add_argument('-r2', type=float, default=0, help='the real part of the seconf Complex Number')
-    parser.add_argument('-i2', type=float, default=0, help='the imaginary part of the second Complex Number')
-
-    args = parser.parse_args()
-    print(f"({args.r1} + {args.i1}i) x ({args.r2} + {args.i2}i) = {ComplexNumber(args.r1, args.i1).multiply(ComplexNumber(args.r2, args.i2))}")
-    print(f"({args.r1} + {args.i1}i) + ({args.r2} + {args.i2}i) = {ComplexNumber(args.r1, args.i1).add(ComplexNumber(args.r2, args.i2))}")
-    print(f"({args.r1} + {args.i1}i) - ({args.r2} + {args.i2}i) = {ComplexNumber(args.r1, args.i1).sub(ComplexNumber(args.r2, args.i2))}")
-
-if __name__ == '__main__':
-    main()
