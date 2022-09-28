@@ -1,12 +1,10 @@
-import math
-import argparse
-
 """
 I provide hier a class, which allow us to do several operation with Complex number
 """
+import math
 
 
-class ComplexNumber(object):
+class ComplexNumber:
     """
     A Class used to represent a COmplex Number
 
@@ -26,47 +24,56 @@ class ComplexNumber(object):
     conjugate():
         returns a new complex number which is the conjugate of the one the method wascalled on.
     add(other):
-        returns a new complex number which is the sum of the complex number the method was called on and other
+        returns a new complex number which is the sum of the complex number the
+                method was called on and other
     subtract(other):
-        returns a new complex number which is the result of subtractingother from the complex number the method was called on.
+        returns a new complex number which is the result of subtractingother
+                from the complex number the method was called on.
     multiply(other):
-        returns a new complex number which is the product of the complex number the method was called on and other.
+        returns a new complex number which is the product of the complex number the method
+                was called on and other.
     divide(other):
-        returns null if the real and imaginary parts of other are 0. Otherwise, it returns a new complex number which is the result of dividing the current complex number by other.  
+        returns null if the real and imaginary parts of other are 0. Otherwise, it returns a
+                new complex number which is the result of dividing the current complex
+                number by other.
     abs():
-        returns a double that is the absolute value of the complex number. (Note: The Math class provides a method to calculate square roots.)
+        returns a double that is the absolute value of the complex number. (Note: The Math class
+                provides a method to calculate square roots.)
     toString():
-        method that returns a sensible string representation of the complex number. A complex  number with real part 42 and imaginary part 23 could for instance be written as 42.0 + 23.0i.
+        method that returns a sensible string representation of the complex number. A complex
+               number with real part 42 and imaginary part 23 could for instance be written as
+               42.0 + 23.0i.
     """
 
-    def __init__(self, real = 0.0, imaginary = 0.0):
+    def __init__(self, real=0.0, imaginary=0.0):
         """
         initialisation of a Complex Number with 2 numbers
 
         """
-        self.re = real
-        self.im = imaginary
+        self.real = real
+        self.imaginary = imaginary
 
     def __str__(self):
-        return f"{self.re:.2f} + {self.im:.2f}i"
+        return f"{self.real:.2f} + {self.imaginary:.2f}i"
 
     def __bool__(self):
         """
         Method for checking the existance of our complex Number.
         Return
         ------
-        The Method return False when the both real and Imaginary part are egal to 0.0 and return True otherswise.
+        The Method return False when the both real and Imaginary part are egal to 0.0 and
+        return True otherswise.
         """
-        if self.im == 0.0 and self.im == 0.0:
+        if self.imaginary == 0.0 and self.real == 0.0:
             return False
-        else:
-            return True
+
+        return True
 
     def __eq__(self, other):
-        if(self.re == other.re and self.im == other.im):
+        if(self.real == other.real and self.imaginary == other.imaginary):
             return True
-        else:
-            return False
+
+        return False
 
     def __add__(self, other):
         """
@@ -95,49 +102,51 @@ class ComplexNumber(object):
         """
         return self.multiply(other)
 
-    def __enter__(self):
-        pass
+    # def __enter__(self):
+    #     pass
 
-    def __exit__(self):
-        pass
+    # def __exit__(self):
+    #     pass
 
-    def _get_real(self):
+    def get_real(self):
         """
         This Method just return the real part of the Complex Number.
         """
-        return self.re
+        return self.real
 
-    def _set_real(self, real):
+    def set_real(self, real):
         """
         This is the sette for the real par
         """
-        self.re = real
+        self.real = real
 
-    def _get_imaginary(self):
+    def get_imaginary(self):
         """
         This Method just return the imaginary part of the Complex Number.
         """
-        return self.im
+        return self.imaginary
 
-    def _set_maginary(self, imaginary):
+    def set_maginary(self, imaginary):
         """
         this the setter for the imaginary part
         """
-        self.im = imaginary
+        self.imaginary = imaginary
 
     def conjugate(self):
         """
-        This Method conjugate our Complex Number, that mean it change the imaginary part whith his opposite.
+        This Method conjugate our Complex Number, that mean it change the imaginary part
+        whith his opposite.
         """
-        self.im *= -1
+        self.imaginary *= -1
 
     def add(self, other):
         """
-        This Medthod add another Complex Number to our Complex Number by addind their real parts together and their imaginary parts together
+        This Medthod add another Complex Number to our Complex Number by addind their real parts
+        together and their imaginary parts together
         """
-        new = ComplexNumber(self.getReal(), self.getImaginary())
-        new.re += other.getReal()
-        new.im += other.getImaginary()
+        new = ComplexNumber(self.get_real(), self.get_imaginary())
+        new.real += other.get_real()
+        new.imaginary += other.get_imaginary()
         return new
 
     def adds(self, c_list):
@@ -149,25 +158,27 @@ class ComplexNumber(object):
         """
         first = c_list[0]
         for i in range(1, len(c_list)):
-            fist = first.add(c_list[i])
+            first.add(c_list[i])
         return first
 
     def sub(self, other):
         """
-        This Medthod substract to our Complex Number another Complex Number to our Complex Number by subtracting their real parts together and their imaginary parts together
+        This Medthod substract to our Complex Number another Complex Number
+        to our Complex Number by subtracting their real parts together and their
+        imaginary parts together
         """
-        new = ComplexNumber(self.getReal(), self.getImaginary())
-        new.re -= other.getReal()
-        new.im -= other.getImaginary()
+        new = ComplexNumber(self.get_real(), self.get_imaginary())
+        new.real -= other.get_real()
+        new.imaginary -= other.get_imaginary()
         return new
 
     def multiply(self, other):
         """
         This Method multiply our Complex Number with another Complex Number
         """
-        new = ComplexNumber(self.getReal(), self.getImaginary())
-        new.re = (new.re*other.getReal()) - (new.im*other.getImaginary())
-        new.im = (new.im*other.getReal()) + (new.re*other.getImaginary())
+        new = ComplexNumber(self.get_real(), self.get_imaginary())
+        new.real = (new.real * other.get_real()) - (new.imaginary * other.get_imaginary())
+        new.imaginary = (new.imaginary * other.get_real()) + (new.real * other.get_imaginary())
         return new
 
     def multiplys(self, c_list):
@@ -179,7 +190,7 @@ class ComplexNumber(object):
         """
         first = c_list[0]
         for i in range(1, len(c_list)):
-            fist = first.multiply(c_list[i])
+            first.multiply(c_list[i])
         return first
 
     def divide(self, other):
@@ -187,23 +198,25 @@ class ComplexNumber(object):
         This Method divide our Complex Number with another Complex Number.
         The Procces are explained hier (https://de.wikipedia.org/wiki/Komplexe_Zahl#Division)
         """
-        new = ComplexNumber(self.getReal(), self.getImaginary())
-        if other.getReal() == 0.0 and other.getImaginary() == 0.0:
+        new = ComplexNumber(self.get_real(), self.get_imaginary())
+        if other.get_real() == 0.0 and other.get_imaginary() == 0.0:
             return 0.0
-        else:
-            other_bar_re = other.getReal()/((other.getReal()**2) + (other.getImaginary()**2))
-            other_bar_im = (-1*other.getImaginary())/((other.getReal()**2) + (other.getImaginary()**2))
-            tmp = ComplexNumber(other_bar_re, other_bar_im)
-            new.multiply(tmp)
+
+        other_bar_re = other.get_real() / ((other.get_real() **2) +
+                       (other.get_imaginary() **2))
+        other_bar_im = (-1*other.get_imaginary()) / ((other.get_real()**2) +
+                       (other.get_imaginary() **2))
+        tmp = ComplexNumber(other_bar_re, other_bar_im)
+        new.multiply(tmp)
         return new
 
     def abs(self):
         """
         This Method return a float Number which is the absulute Value of our Complex Number
         """
-        return math.sqrt(self.getReal()**2 + self.getImaginary()**2)
+        return math.sqrt(self.get_real() **2 + self.get_imaginary() **2)
 
-    def toString(self):
+    def to_string(self):
         """
         For the case this Method just Print our Complex Number
         """
