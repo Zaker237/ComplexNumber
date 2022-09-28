@@ -1,4 +1,4 @@
-from ComplexNumber import ComplexNumber
+from cnumber import ComplexNumber
 import unittest
 
 
