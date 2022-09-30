@@ -12,7 +12,7 @@ class TestSum(unittest.TestCase):
         number2 = ComplexNumber(3, 4)
         self.assertEqual(
             number1 + number2,
-            ComplexNumber(4,6),
+            ComplexNumber(4, 6),
             "Should be 4 + 6i"
         )
 
