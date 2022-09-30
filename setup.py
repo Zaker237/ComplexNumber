@@ -1,3 +1,4 @@
+"""Setup config"""
 from setuptools import setup, find_packages
 import cnumber
 
@@ -10,5 +11,9 @@ setup(
     author="Alex Mboutchouang",
     author_email="mboutchouangalex@gmail.com",
     url="https://github.com/Zaker237/ComplexNumber",
-    packages=find_packages(exclude=("tests",))
+    packages=find_packages(exclude=("tests",)),
+    python_requires=">=3.7",
+    extras_require={
+        "test": ["pytest", "coverage"],
+    },
 )
