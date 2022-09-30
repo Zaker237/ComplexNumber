@@ -1,5 +1,4 @@
 """Test Module"""
-from cgitb import reset
 import unittest
 
 from cnumber import ComplexNumber
@@ -8,15 +7,19 @@ from cnumber import ComplexNumber
 class TestSum(unittest.TestCase):
     """Testing class for cnumber."""
     def setUp(self):
+        """Setup the tests."""
         pass
 
     def tearDown(self):
+        """Teardown the tests."""
         pass
 
     def test_inverse(self):
+        """Test the inverse function."""
         pass
 
     def test_conjugate(self):
+        """Test the conjugate function."""
         pass
 
     def test_sum(self):
@@ -30,9 +33,7 @@ class TestSum(unittest.TestCase):
         )
 
     def test_sum_namy(self):
-        pass
-
-    def test_multiply_namy(self):
+        """Test the add many function."""
         pass
 
     def test_mutiply(self):
@@ -44,6 +45,7 @@ class TestSum(unittest.TestCase):
         self.assertEqual(result.get_imaginary(), 10, "Should be 10!")
 
     def test_multiply_namy(self):
+        """Test the multiply many function."""
         pass
 
 
