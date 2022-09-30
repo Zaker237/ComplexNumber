@@ -109,9 +109,7 @@ class ComplexNumber:
     #     pass
 
     def get_real(self):
-        """
-        This Method just return the real part of the Complex Number.
-        """
+        """This Method just return the real part of the Complex Number."""
         return self.real
 
     def set_real(self, real):
@@ -121,15 +119,11 @@ class ComplexNumber:
         self.real = real
 
     def get_imaginary(self):
-        """
-        This Method just return the imaginary part of the Complex Number.
-        """
+        """This Method just return the imaginary part of the Complex Number."""
         return self.imaginary
 
     def set_maginary(self, imaginary):
-        """
-        this the setter for the imaginary part
-        """
+        """This the setter for the imaginary part"""
         self.imaginary = imaginary
 
     def conjugate(self):
@@ -151,10 +145,11 @@ class ComplexNumber:
 
     def adds(self, c_list):
         """
-        This Method shoul add a liste of Complex Numbers
-        Return
-        ------
-        it return a Complex Number which is the sum of all Complex Number in the list
+        This Method shoul add a liste of Complex Numbers.
+
+        Returns
+            (ComplexNumber): it return a Complex Number which is the sum of all Complex
+                             Number in the list
         """
         first = c_list[0]
         for i in range(1, len(c_list)):
@@ -173,20 +168,20 @@ class ComplexNumber:
         return new
 
     def multiply(self, other):
-        """
-        This Method multiply our Complex Number with another Complex Number
-        """
+        """This Method multiply our Complex Number with another Complex Number"""
         new = ComplexNumber(self.get_real(), self.get_imaginary())
-        new.real = (new.real * other.get_real()) - (new.imaginary * other.get_imaginary())
-        new.imaginary = (new.imaginary * other.get_real()) + (new.real * other.get_imaginary())
+        real = (new.real * other.get_real()) - (new.imaginary * other.get_imaginary())
+        imaginary = (new.imaginary * other.get_real()) + (new.real * other.get_imaginary())
+        new.set_real(real)
+        new.set_maginary(imaginary)
         return new
 
     def multiplys(self, c_list):
         """
-        This Method shoul multiply a list of Complex Numbers
-        Return
-        ------
-        it return a Complex Number which is the multiplication of all Complex Number in the list
+            This Method shoul multiply a list of Complex Numbers
+        Returns:
+            (ComplexNumber): it return a Complex Number which is the multiplication of all Complex
+                             Number in the list
         """
         first = c_list[0]
         for i in range(1, len(c_list)):
@@ -204,8 +199,8 @@ class ComplexNumber:
 
         other_bar_re = other.get_real() / ((other.get_real() **2) +
                        (other.get_imaginary() **2))
-        other_bar_im = (-1*other.get_imaginary()) / ((other.get_real()**2) +
-                       (other.get_imaginary() **2))
+        other_bar_im = (-1 * other.get_imaginary()) / ((other.get_real() ** 2) +
+                       (other.get_imaginary() ** 2))
         tmp = ComplexNumber(other_bar_re, other_bar_im)
         new.multiply(tmp)
         return new
@@ -217,7 +212,5 @@ class ComplexNumber:
         return math.sqrt(self.get_real() **2 + self.get_imaginary() **2)
 
     def to_string(self):
-        """
-        For the case this Method just Print our Complex Number
-        """
+        """For the case this Method just Print our Complex Number."""
         print(self)
