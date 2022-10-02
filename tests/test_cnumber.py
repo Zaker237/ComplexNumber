@@ -10,6 +10,12 @@ class TestSum(unittest.TestCase):
         """Test the inverse function."""
         self.assertEqual(1,1)
 
+    def test_abs(self):
+        """Test the abs function."""
+        number = ComplexNumber(3, 4)
+        abs_v = number.abs()
+        self.assertEqual(abs_v, 5, "the abs value is wrong!")
+
     def test_conjugate(self):
         """Test the conjugate function."""
         number1 = ComplexNumber(4, 5)
