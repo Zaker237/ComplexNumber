@@ -12,7 +12,11 @@ class TestSum(unittest.TestCase):
 
     def test_conjugate(self):
         """Test the conjugate function."""
-        self.assertEqual(1,1)
+        number1 = ComplexNumber(4, 5)
+        number1.conjugate()
+        self.assertEqual(number1.get_imaginary(), -5, "Error on the conjugasion")
+        number1.conjugate()
+        self.assertEqual(number1.get_imaginary(), 5, "Error on the conjugasion")
 
     def test_sum(self):
         """Test the summe."""
