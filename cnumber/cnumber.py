@@ -78,37 +78,37 @@ class ComplexNumber:
 
     def __add__(self, other):
         """
-        this is the Method for the Classic addition von 2 Complex Number using the Signe +
-        Return
-        ------
-        it return a Complex Number wich is the Somme of the two number.
+        this is the Method for the Classic addition von 2 Complex Numbers using the Signe +
+
+        Returns
+            it return a Complex Number wich is the Somme of the two numbers.
         """
         return self.add(other)
 
     def __sub__(self, other):
         """
-        this is the Method for the Classic Substraction for 2 Complex Number using the Signe +
-        Return
-        ------
-        it return a Complex Number wich is the different of the two number.
+        this is the Method for the Classic Substraction for 2 Complex Numbers using the Signe +
+
+        Returns
+            it return a Complex Number wich is the different of the two numbers.
         """
         return self.sub(other)
 
     def __mul__(self, other):
         """
-        this is the Method for the Classic Multiplication for 2 Complex Number using the Signe *
-        Return
-        ------
-        it return a Complex Number wich is the Product of the two number.
+        this is the Method for the Classic Multiplication for 2 Complex Numbers using the Signe *
+
+        Returns
+            it return a Complex Number wich is the Product of the two numbers.
         """
         return self.multiply(other)
 
     def __abs__(self):
         """
         this is the Method for the Classic Abs for a Complex Number using abs function
-        Return
-        ------
-        it return a float Number wich is the abs of the number.
+
+        Returns
+            it return a float Number wich is the abs of the number.
         """
         return self.abs()
 
