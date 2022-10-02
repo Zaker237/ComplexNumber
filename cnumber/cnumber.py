@@ -2,6 +2,7 @@
 I provide hier a class, which allow us to do several operation with Complex number
 """
 import math
+from .exception import DisisionByNullException
 
 
 class ComplexNumber:
@@ -195,7 +196,7 @@ class ComplexNumber:
         """
         new = ComplexNumber(self.get_real(), self.get_imaginary())
         if other.get_real() == 0.0 and other.get_imaginary() == 0.0:
-            return 0.0
+            raise DisisionByNullException("Devision by null Error!")
 
         other_bar_re = other.get_real() / ((other.get_real() **2) +
                        (other.get_imaginary() **2))
